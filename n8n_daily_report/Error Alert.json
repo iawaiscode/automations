@@ -1,0 +1,66 @@
+{
+  "name": "Error Alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bf250896-ecb3-480f-ab18-488aa3c289e2",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "sendTo": "iawaiscode@gmail.com",
+        "subject": "=Workflow failed: {{ $json.workflow.name }}",
+        "message": "={{ $json.execution.error.message }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "f13b8c82-0eef-48b9-96fc-922b7b5a92a4",
+      "name": "Send a message",
+      "webhookId": "cda9058c-81bb-4fb1-89df-9377237228ec",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "bkrCYhXvZjunOOec",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "1a5f50a0-ea14-4ac1-a995-d25dc48b7e6b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "07f33dd9985941ffea7baf88d9e3a07e8c25362a7cae57775039c4cc7eb776a3"
+  },
+  "nodeGroups": [],
+  "id": "Rwt5xWoPOTboo6bF",
+  "tags": []
+}
